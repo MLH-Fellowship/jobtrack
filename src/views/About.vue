@@ -6,7 +6,7 @@
     >
       <div class="-mx-3 pl-3 pr-1 flex items-center justify-between">
         <span>
-          <img alt class="h-9 w-9" src="/img/example-logo.svg" />
+          <img alt class="h-9 w-9" src="@/assets/logo.png" />
         </span>
         <button @click="sidebarOpen = false" class="text-gray-700 lg:hidden">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24">
