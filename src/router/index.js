@@ -72,6 +72,16 @@ const routes = [
     path: '/demo',
     name: 'Demo',
     component: () => import(/* webpackChunkName: "demo" */ '../views/demo/DemoJobsPipeline.vue')
+  },
+  {
+    path: '/user/settings',
+    name: 'Settings',
+    component: () => import(/* webpackChunkName: "settings" */ '../views/user/Settings.vue')
+  },
+  {
+    path: '/user/profile',
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "profile" */ '../views/user/Profile.vue')
   }
 ]
 
