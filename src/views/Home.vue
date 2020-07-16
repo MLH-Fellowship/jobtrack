@@ -13,12 +13,11 @@
           <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
 
-        <div class="sticky">
-          <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+          <div id="navbar" class="relative pt-6 px-4 sm:px-6 lg:px-8">
             <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
               <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                 <div class="flex items-center justify-between w-full md:w-auto">
-                  <a href="#" aria-label="Home">
+                  <a href="/home" aria-label="Home">
                     <img class="h-8 w-auto sm:h-10" src="../assets/logo.png" alt="Logo" />
                   </a>
                   <div class="-mr-2 flex items-center md:hidden">
@@ -44,19 +43,19 @@
               </div>
               <div class="hidden md:block md:ml-10 md:pr-4">
                 <a
-                  href="#"
+                  href="#product"
                   class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Product</a>
                 <a
-                  href="#"
+                  href="#features"
                   class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Features</a>
                 <a
-                  href="#"
+                  href="#marketplace"
                   class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Marketplace</a>
                 <a
-                  href="#"
+                  href="#company"
                   class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Company</a>
                 <button
@@ -72,8 +71,6 @@
               </div>
             </nav>
           </div>
-        </div>
-
         <!--
         Mobile menu, show/hide based on menu open state.
 
@@ -123,22 +120,22 @@
               </div>
               <div class="px-2 pt-2 pb-3">
                 <a
-                  href="#"
+                  href="#product"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
                 >Product</a>
                 <a
-                  href="#"
+                  href="#features"
                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
                 >Features</a>
                 <a
-                  href="#"
+                  href="#marketplace"
                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
                 >Marketplace</a>
                 <a
-                  href="#"
+                  href="#company"
                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
                 >Company</a>
@@ -202,24 +199,17 @@
           </div>
         </main>
       </div>
-    </div>
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img
-        class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-        src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-        alt
-      />
-    </div>
-    <div class="product">
+     </div>
+    <div id="product" class="product">
       <ProductComponent />
     </div>
-    <div class="features">
+    <div id="features" class="features">
       <FeaturesComponent />
     </div>
-    <div class="marketplace">
+    <div id="marketplace" class="marketplace">
       <MarketplaceComponent />
     </div>
-    <div class="company">
+    <div id="company" class="company">
       <CompanyComponent />
     </div>
   </div>
@@ -257,9 +247,7 @@ export default {
 </script>
 
 <style>
-div.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+html {
+  scroll-behavior: smooth;
 }
 </style>
