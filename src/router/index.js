@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-=======
 import { authGuard, requireAuth } from '../utils/auth'
 
 import Home from '../views/Home.vue'
