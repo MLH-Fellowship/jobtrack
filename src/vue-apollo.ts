@@ -41,7 +41,7 @@ const defaultOptions = {
   // cache: myCache
 
   // Override the way the Authorization header is set
-  getAuth: (tokenName) => {
+  getAuth: (tokenName: any) => {
     // get the authentication token from local storage if it exists
     // return the headers to the context so httpLink can read them
     const token = window.$cookies.get(tokenName)

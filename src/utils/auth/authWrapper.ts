@@ -123,7 +123,7 @@ export const useAuth0 = ({
 
 // Create a simple Vue plugin to expose the wrapper object throughout the application
 export const Auth0Plugin = {
-  install (Vue, options) {
+  install (Vue: { prototype: { $auth: any } }, options: { [x: string]: any; onRedirectCallback?: (() => void) | undefined; redirectUri?: string | undefined }) {
     Vue.prototype.$auth = useAuth0(options)
   }
 }
