@@ -4,10 +4,10 @@
 <script>
 export default {
   name: 'Login',
-  mounted () {
+  async mounted () {
+    const claims = await this.$auth.getIdTokenClaims()
+    this.$cookies.set('apollo-token', claims.__raw)
     this.$nextTick(() => {
-      // setAccessToken()
-      // setIdToken()
       window.location.href = '/dashboard'
     })
   }

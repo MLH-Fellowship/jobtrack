@@ -1,0 +1,7 @@
+query allStatus {
+  status {
+    name
+    id
+    value
+  }
+}
