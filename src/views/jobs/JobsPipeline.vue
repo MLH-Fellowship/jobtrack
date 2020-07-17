@@ -1,5 +1,5 @@
 <template>
-  <demo-dashboard-layout>
+  <dashboard-layout>
       <jobs-board-view
         v-if="currentView === 'board'"
         :jobs="jobs"
@@ -8,17 +8,17 @@
         v-if="currentView === 'table'"
         :jobs="jobs"
       ></jobs-table-view>
-    </demo-dashboard-layout>
+    </dashboard-layout>
 </template>
 <script>
-import DemoDashboardLayout from '@/views/layout/DashboardLayout'
+import DashboardLayout from '@/views/layout/DashboardLayout'
 import JobsTableView from '@/components/JobsTableView'
 import JobsBoardView from '@/components/JobsBoardView'
 
 export default {
   name: 'JobsPipeline',
   components: {
-    DemoDashboardLayout,
+    DashboardLayout,
     JobsTableView,
     JobsBoardView
   },
