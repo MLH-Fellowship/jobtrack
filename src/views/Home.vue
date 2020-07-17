@@ -1,76 +1,37 @@
 <template>
-  <div class="relative bg-white overflow-hidden">
-    <div class="mx-auto px-10">
-      <div
-        class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
-      >
-        <svg
-          class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-          fill="currentColor"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <polygon points="50,0 100,0 50,100 0,100" />
-        </svg>
+  <div class="min-h-screen relative bg-white overflow-hidden">
+  <div class="mx-auto px-10 min-h-screen">
+    <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="50,0 100,0 50,100 0,100" />
+      </svg>
 
-          <div id="navbar" class="relative pt-6 px-4 sm:px-6 lg:px-8">
-            <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
-              <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                <div class="flex items-center justify-between w-full md:w-auto">
-                  <a href="/home" aria-label="Home">
-                    <img class="h-8 w-auto sm:h-10" src="../assets/logo.png" alt="Logo" />
-                  </a>
-                  <div class="-mr-2 flex items-center md:hidden">
-                    <button
-                      type="button"
-                      @click="showNav()"
-                      class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-                      id="main-menu"
-                      aria-label="Main menu"
-                      aria-haspopup="true"
-                    >
-                      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+      <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+        <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
+          <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+            <div class="flex items-center justify-between w-full md:w-auto">
+              <a href="#" aria-label="Home">
+                <img class="h-8 w-auto sm:h-10" src="../assets/logo.png" alt="Logo">
+              </a>
+              <div class="-mr-2 flex items-center md:hidden">
+                <button type="button" @click="showNav()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" id="main-menu" aria-label="Main menu" aria-haspopup="true">
+                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
               </div>
-              <div class="hidden md:block md:ml-10 md:pr-4">
-                <a
-                  href="#product"
-                  class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >Product</a>
-                <a
-                  href="#features"
-                  class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >Features</a>
-                <a
-                  href="#marketplace"
-                  class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >Marketplace</a>
-                <a
-                  href="#company"
-                  class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >Company</a>
-                <button
-                  v-if="!$auth.isAuthenticated && !$auth.loading"
-                  @click="login()"
-                  class="ml-8 font-medium text-teal-600 hover:text-teal-900 transition duration-150 ease-in-out"
-                >Log in →</button>
-                <router-link
-                  v-if="$auth.isAuthenticated && !$auth.loading"
-                  to="/dashboard"
-                  class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out"
-                >Dashboard →</router-link>
-              </div>
-            </nav>
+            </div>
           </div>
+          <div class="hidden md:block md:ml-10 md:pr-4">
+            <a href="#product" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Product</a>
+            <a href="#features" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</a>
+            <a href="#marketplace" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Marketplace</a>
+            <a href="#company" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Company</a>
+            <button v-if="!$auth.isAuthenticated && !$auth.loading" @click="login()" class="ml-8 font-medium text-teal-600 hover:text-teal-900 transition duration-150 ease-in-out">Log in →</button>
+            <router-link v-if="$auth.isAuthenticated && !$auth.loading" to="/dashboard" class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out">Dashboard →</router-link>
+          </div>
+        </nav>
+      </div>
         <!--
         Mobile menu, show/hide based on menu open state.
 
@@ -156,48 +117,29 @@
             </div>
           </div>
         </div>
-
-        <main
-          class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
-        >
-          <div class="sm:text-center lg:text-left">
-            <h3
-              class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl"
-            >
-              Track your
-              <br class="xl:hidden" />
-              <span class="text-teal-600">Job Applications</span>
-            </h3>
-            <p
-              class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
-            >Smooth Workflow to Ease your Pain</p>
-            <ol>
-              <li>Put your application on a pipeline</li>
-              <li>Applied -> Accepted -> Interview -> Offer</li>
-            </ol>
-            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-              <div class="rounded-md shadow">
-                <button
-                  v-if="!$auth.isAuthenticated && !$auth.loading"
-                  @click="login()"
-                  class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-                >Get started</button>
-                <router-link
-                  v-if="$auth.isAuthenticated && !$auth.loading"
-                  class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-teal-700 bg-teal-100 hover:text-teal-600 hover:bg-teal-50 focus:outline-none focus:shadow-outline-teal focus:border-teal-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-                  to="/dashboard"
-                >Continue to Dashboard</router-link>
-              </div>
-              <div class="mt-3 sm:mt-0 sm:ml-3">
-                <router-link
-                  v-if="!$auth.isAuthenticated && !$auth.loading"
-                  class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-teal-700 bg-teal-100 hover:text-teal-600 hover:bg-teal-50 focus:outline-none focus:shadow-outline-teal focus:border-teal-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-                  to="/demo"
-                >Live demo</router-link>
-              </div>
+      <main class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-42">
+        <div class="sm:text-center lg:text-left">
+          <h3 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+            Track your
+            <br class="xl:hidden">
+            <span class="text-teal-600">Job Applications</span>
+          </h3>
+          <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            No more tracking of job applications with pen and paper. Sign now to enjoy our smooth workflow that takes away your pain
+          </p>
+          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+            <div class="rounded-md shadow">
+              <button v-if="!$auth.isAuthenticated && !$auth.loading" @click="login()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                Get started
+              </button>
+              <router-link v-if="$auth.isAuthenticated && !$auth.loading" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-teal-700 bg-teal-100 hover:text-teal-600 hover:bg-teal-50 focus:outline-none focus:shadow-outline-teal focus:border-teal-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10" to="/dashboard">Continue to Dashboard</router-link>
+            </div>
+            <div class="mt-3 sm:mt-0 sm:ml-3">
+              <router-link v-if="!$auth.isAuthenticated && !$auth.loading" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-teal-700 bg-teal-100 hover:text-teal-600 hover:bg-teal-50 focus:outline-none focus:shadow-outline-teal focus:border-teal-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10" to="/demo">Live demo</router-link>
             </div>
           </div>
-        </main>
+        </div>
+      </main>
       </div>
      </div>
     <div id="product" class="product">

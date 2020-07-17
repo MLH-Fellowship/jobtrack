@@ -89,9 +89,9 @@
                   <option disabled selected>Please select current status</option>
                   <option
                     v-for="status in jobStatus"
-                    v-bind:key="status.key"
+                    v-bind:key="status.id"
                     :value="status.value"
-                  >{{status.label}}</option>
+                  >{{status.name}}</option>
                 </select>
               </div>
             </div>
@@ -110,83 +110,19 @@
 </template>
 <script>
 import DemoDashboardLayout from '@/views/layout/DashboardLayout'
+import allStatus from '../../graphql/queries/allStatus.gql'
 
 export default {
   name: 'DemoJobsPipeline',
   components: {
     DemoDashboardLayout
   },
+  apollo: {
+    jobStatus: allStatus
+  },
   data: () => {
     return {
-      jobStatus: [
-        {
-          key: 1,
-          value: 'backlog',
-          label: 'Backlog'
-        },
-        {
-          key: 2,
-          value: 'applied',
-          label: 'Applied'
-        },
-        {
-          key: 3,
-          value: 'interviewed',
-          label: 'Interviewed'
-        },
-        {
-          key: 4,
-          value: 'recieved-offer',
-          label: 'Offer'
-        },
-        {
-          key: 5,
-          value: 'hired',
-          label: 'Hired'
-        },
-        {
-          key: 5,
-          value: 'rejected',
-          label: 'Rejected'
-        }
-      ],
-      tags: [
-        {
-          key: 1,
-          value: 'frontend',
-          label: 'Frontend'
-        },
-        {
-          key: 2,
-          value: 'Backend',
-          label: 'Backend'
-        },
-        {
-          key: 3,
-          value: 'QA',
-          label: 'QA'
-        },
-        {
-          key: 4,
-          value: 'Android',
-          label: 'Android'
-        },
-        {
-          key: 5,
-          value: 'IOS',
-          label: 'IOS'
-        },
-        {
-          key: 6,
-          value: 'Fullstack',
-          label: 'Full Stack'
-        },
-        {
-          key: 6,
-          value: 'Other',
-          label: 'Other'
-        }
-      ]
+      //
     }
   },
   computed: {

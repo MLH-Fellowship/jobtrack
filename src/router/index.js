@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import { authGuard } from '../utils/auth'
+=======
+import { authGuard, requireAuth } from '../utils/auth'
+
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -20,6 +22,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
+    beforeEnter: authGuard,
     component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
   },
   {
@@ -40,8 +43,8 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    beforeEnter: authGuard,
-    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
+    beforeEnter: requireAuth,
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/jobs/JobsPipeline.vue')
   },
   {
     path: '/demo/jobs-board',
