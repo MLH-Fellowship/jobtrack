@@ -11,6 +11,8 @@ import { domain, clientId } from '../auth_config.json'
 // Import the plugin here
 import { Auth0Plugin } from './utils/auth/index'
 
+import { createProvider } from './vue-apollo'
+
 // Install the authentication plugin here
 Vue.use(Auth0Plugin, {
   domain,
@@ -28,5 +30,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  apolloProvider: createProvider(),
   render: h => h(App)
 }).$mount('#app')
