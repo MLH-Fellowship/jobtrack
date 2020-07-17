@@ -18,7 +18,7 @@ import VueCookies from 'vue-cookies'
 Vue.use(Auth0Plugin, {
   domain,
   clientId,
-  onRedirectCallback: appState => {
+  onRedirectCallback: (appState: { targetUrl: import('vue-router').RawLocation }) => {
     router.push(
       appState && appState.targetUrl
         ? appState.targetUrl
