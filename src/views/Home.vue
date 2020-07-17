@@ -23,17 +23,16 @@
             </div>
           </div>
           <div class="hidden md:block md:ml-10 md:pr-4">
-            <a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Product</a>
-            <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</a>
-            <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Marketplace</a>
-            <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Company</a>
+            <a href="#product" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Product</a>
+            <a href="#features" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</a>
+            <a href="#marketplace" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Marketplace</a>
+            <a href="#company" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Company</a>
             <button v-if="!$auth.isAuthenticated && !$auth.loading" @click="login()" class="ml-8 font-medium text-teal-600 hover:text-teal-900 transition duration-150 ease-in-out">Log in →</button>
             <router-link v-if="$auth.isAuthenticated && !$auth.loading" to="/dashboard" class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out">Dashboard →</router-link>
           </div>
         </nav>
       </div>
-
-      <!--
+        <!--
         Mobile menu, show/hide based on menu open state.
 
         Entering: "duration-150 ease-out"
@@ -42,38 +41,82 @@
         Leaving: "duration-100 ease-in"
           From: "opacity-100 scale-100"
           To: "opacity-0 scale-95"
-      -->
-      <div v-if="showMobileNav" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-        <div class="rounded-lg shadow-md">
-          <div class="rounded-lg bg-white shadow-xs overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
-            <div class="px-5 pt-4 flex items-center justify-between">
+        -->
+        <div
+          v-if="showMobileNav"
+          class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+        >
+          <div class="rounded-lg shadow-md">
+            <div
+              class="rounded-lg bg-white shadow-xs overflow-hidden"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="main-menu"
+            >
+              <div class="px-5 pt-4 flex items-center justify-between">
+                <div>
+                  <img
+                    class="h-8 w-auto"
+                    src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
+                    alt
+                  />
+                </div>
+                <div class="-mr-2">
+                  <button
+                    type="button"
+                    @click="showNav()"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                    aria-label="Close menu"
+                  >
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="px-2 pt-2 pb-3">
+                <a
+                  href="#product"
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >Product</a>
+                <a
+                  href="#features"
+                  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >Features</a>
+                <a
+                  href="#marketplace"
+                  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >Marketplace</a>
+                <a
+                  href="#company"
+                  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >Company</a>
+              </div>
               <div>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg" alt="">
+                <button
+                  v-if="!$auth.isAuthenticated && !$auth.loading"
+                  @click="login()"
+                  class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >Log in →</button>
+                <router-link
+                  v-if="$auth.isAuthenticated && !$auth.loading"
+                  to="/dashboard"
+                  class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out"
+                >Dashboard →</router-link>
               </div>
-              <div class="-mr-2">
-                <button type="button" @click="showNav()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Close menu">
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="px-2 pt-2 pb-3">
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Product</a>
-              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Features</a>
-              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Marketplace</a>
-              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Company</a>
-            </div>
-            <div>
-              <button v-if="!$auth.isAuthenticated && !$auth.loading" @click="login()" class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out" role="menuitem">
-                Log in →
-              </button>
-              <router-link v-if="$auth.isAuthenticated && !$auth.loading" to="/dashboard" class="block w-full px-5 py-3 text-center font-medium text-teal-600 bg-gray-50 hover:bg-gray-100 hover:text-teal-700 focus:outline-none focus:bg-gray-100 focus:text-teal-700 transition duration-150 ease-in-out">Dashboard →</router-link>
             </div>
           </div>
         </div>
-      </div>
-
       <main class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-42">
         <div class="sm:text-center lg:text-left">
           <h3 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
@@ -97,18 +140,37 @@
           </div>
         </div>
       </main>
+      </div>
+     </div>
+    <div id="product" class="product">
+      <ProductComponent />
+    </div>
+    <div id="features" class="features">
+      <FeaturesComponent />
+    </div>
+    <div id="marketplace" class="marketplace">
+      <MarketplaceComponent />
+    </div>
+    <div id="company" class="company">
+      <CompanyComponent />
     </div>
   </div>
-  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="">
-  </div>
-</div>
 </template>
 
 <script>
-// @ is an alias to /src
+import ProductComponent from '@/components/homePageHeaderComponents/Product.vue'
+import FeaturesComponent from '@/components/homePageHeaderComponents/Features.vue'
+import MarketplaceComponent from '@/components/homePageHeaderComponents/Marketplace.vue'
+import CompanyComponent from '@/components/homePageHeaderComponents/Company.vue'
+
 export default {
   name: 'Home',
+  components: {
+    ProductComponent,
+    FeaturesComponent,
+    MarketplaceComponent,
+    CompanyComponent
+  },
   data: function () {
     return {
       showMobileNav: false
@@ -125,3 +187,9 @@ export default {
   }
 }
 </script>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>

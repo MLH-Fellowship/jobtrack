@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import { authGuard, requireAuth } from '../utils/auth'
+
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -13,10 +14,25 @@ const routes = [
     component: Home
   },
   {
+    path: '/home',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     beforeEnter: authGuard,
     component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
+  },
+  {
+    path: '/ExampleLogin',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/ExampleLogin.vue')
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: () => import(/* webpackChunkName: "login" */ '../views/Signup.vue')
   },
   {
     path: '/logout',
@@ -68,6 +84,18 @@ const routes = [
     path: '/demo',
     name: 'Demo',
     component: () => import(/* webpackChunkName: "demo" */ '../views/demo/DemoJobsPipeline.vue')
+  },
+  {
+    path: '/user/settings',
+    name: 'Settings',
+    beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "settings" */ '../views/user/Settings.vue')
+  },
+  {
+    path: '/user/profile',
+    name: 'Profile',
+    beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "profile" */ '../views/user/Profile.vue')
   }
 ]
 
