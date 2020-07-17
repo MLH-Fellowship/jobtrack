@@ -8,7 +8,7 @@
       </h2>
       <p class="mt-2 text-center text-sm leading-5 text-gray-600">
         Or
-        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+        <a href="/signup" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
           sign up for a free account here
         </a>
       </p>

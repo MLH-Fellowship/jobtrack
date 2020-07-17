@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// import { authGuard } from '../utils/auth'
+import { authGuard } from '../utils/auth'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -28,9 +28,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "login" */ '../views/ExampleLogin.vue')
   },
   {
-    path: '/ExampleSignup',
+    path: '/signup',
     name: 'Signup',
-    component: () => import(/* webpackChunkName: "login" */ '../views/ExampleSignup.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/Signup.vue')
   },
   {
     path: '/logout',
@@ -40,7 +40,7 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    // beforeEnter: authGuard,
+    beforeEnter: authGuard,
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
   },
   {
@@ -86,11 +86,13 @@ const routes = [
   {
     path: '/user/settings',
     name: 'Settings',
+    beforeEnter: authGuard,
     component: () => import(/* webpackChunkName: "settings" */ '../views/user/Settings.vue')
   },
   {
     path: '/user/profile',
     name: 'Profile',
+    beforeEnter: authGuard,
     component: () => import(/* webpackChunkName: "profile" */ '../views/user/Profile.vue')
   }
 ]
