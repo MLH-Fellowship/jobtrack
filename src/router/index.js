@@ -35,6 +35,18 @@ const routes = [
     component: () => import(/* webpackChunkName: "jobs-board" */ '../views/demo/DemoJobsPipeline.vue')
   },
   {
+    path: '/demo/job/create',
+    name: 'add-job',
+    // beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "jobs-board" */ '../views/demo/AddJob.vue')
+  },
+  {
+    path: '/demo/job/edit',
+    name: 'edit-job',
+    // beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "edit-jobs-board" */ '../views/demo/EditJob.vue')
+  },
+  {
     path: '/demo/jobs-board/filtered',
     name: 'demo-filtered-jobs-board',
     // beforeEnter: authGuard,

@@ -16,7 +16,7 @@ import JobsTableView from '@/components/JobsTableView'
 import JobsBoardView from '@/components/JobsBoardView'
 
 export default {
-  name: 'DemoJobsPipeline',
+  name: 'AddJob',
   components: {
     DemoDashboardLayout,
     JobsTableView,
@@ -29,7 +29,7 @@ export default {
           id: 1,
           title: 'Full-stack Developer (ruby-on-rails)',
           link: 'https://vuejs.org/v2/guide/computed.html#Computed-vs-Watched-Property',
-          label: 'Full Stack',
+          label: 'Fullstack',
           company: 'Facebook Inc.',
           location: 'London Campus',
           status: 'backlog',
