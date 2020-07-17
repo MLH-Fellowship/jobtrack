@@ -88,9 +88,9 @@
                 >
                   <option disabled selected>Please select current status</option>
                   <option
-                    v-for="status in jobStatus"
+                    v-for="status in status"
                     v-bind:key="status.id"
-                    :value="status.value"
+                    :value="status.slug"
                   >{{status.name}}</option>
                 </select>
               </div>
@@ -110,7 +110,7 @@
 </template>
 <script>
 import DemoDashboardLayout from '@/views/layout/DashboardLayout'
-import allStatus from '../../graphql/queries/allStatus.gql'
+import { GET_ALL_STATUSES } from '@/graphql/queries'
 
 export default {
   name: 'DemoJobsPipeline',
@@ -118,11 +118,54 @@ export default {
     DemoDashboardLayout
   },
   apollo: {
-    jobStatus: allStatus
+    status: {
+      query: GET_ALL_STATUSES,
+      error (error) {
+        this.error = JSON.stringify(error.message)
+      }
+    }
   },
-  data: () => {
+  data () {
     return {
-      //
+      error: null,
+      status: [],
+      tags: [
+        {
+          key: 1,
+          value: 'frontend',
+          label: 'Frontend'
+        },
+        {
+          key: 2,
+          value: 'backend',
+          label: 'Backend'
+        },
+        {
+          key: 3,
+          value: 'QA',
+          label: 'QA'
+        },
+        {
+          key: 4,
+          value: 'Android',
+          label: 'Android'
+        },
+        {
+          key: 5,
+          value: 'IOS',
+          label: 'IOS'
+        },
+        {
+          key: 6,
+          value: 'Fullstack',
+          label: 'Full Stack'
+        },
+        {
+          key: 7,
+          value: 'Other',
+          label: 'Other'
+        }
+      ]
     }
   },
   computed: {
