@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import createAuth0Client from '@auth0/auth0-spa-js'
 
+const REDIRECT_URL = `${window.location.origin}/login`
+
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname)
 
@@ -10,7 +12,7 @@ export const getInstance = () => instance
 
 export const useAuth0 = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
-  redirectUri = window.location.origin,
+  redirectUri = REDIRECT_URL,
   ...options
 }) => {
   if (instance) return instance
