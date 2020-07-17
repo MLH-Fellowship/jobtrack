@@ -29,6 +29,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
   },
   {
+    path: '/demo/jobs-board',
+    name: 'demo-jobs-board',
+    // beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "jobs-board" */ '../views/demo/DemoJobsPipeline.vue')
+  },
+  {
+    path: '/demo/jobs-board/filtered',
+    name: 'demo-filtered-jobs-board',
+    // beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "filtered-jobs-board" */ '../views/demo/JobsFilterView.vue')
+  },
+  {
+    path: '/demo/jobs-board/tags',
+    name: 'demo-tag-jobs-board',
+    // beforeEnter: authGuard,
+    component: () => import(/* webpackChunkName: "filtered-jobs-board" */ '../views/demo/JobsTagView.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
@@ -36,7 +54,7 @@ const routes = [
   {
     path: '/demo',
     name: 'Demo',
-    component: () => import(/* webpackChunkName: "demo" */ '../views/Demo.vue')
+    component: () => import(/* webpackChunkName: "demo" */ '../views/demo/DemoJobsPipeline.vue')
   }
 ]
 
